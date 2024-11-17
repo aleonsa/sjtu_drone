@@ -57,11 +57,11 @@ Check the drone's state:
 
 Possible states:
 
-  0: Landed.
-  
-  1: Flying.
-  
-  2: Hovering.
+- 0: Landed.
+
+- 1: Flying.
+
+- 2: Hovering.
 
 View sensor data:
 
