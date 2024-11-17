@@ -104,6 +104,53 @@ Write a ROS node to publish control commands. For example, a simple PID to maint
 
 Launch the drone in Gazebo and run the PID node. Verify that the drone responds to the commands.
 
+---
+
+## Using Reinforcement Learning
+### Workflow
+
+1. Input:
+     Use topics like /simple_drone/gt_pose (position) or /simple_drone/imu/out (orientation) as the state.
+2. Output:
+     Publish control commands to /simple_drone/cmd_vel.
+
+### Steps
+
+1. Set Up the Environment:
+     - Gazebo serves as the simulation environment.
+     - Define reward functions for specific tasks (e.g., maintain position, pass through gates).
+
+2. Train the Agent:
+     - Use libraries like Stable-Baselines3, TensorFlow, or PyTorch.
+     - Interface ROS with the RL framework via rosbridge or custom nodes.
+
+3. Deploy the Model:
+     - Replace traditional control logic with the trained agent to publish actions.
+
+---
+
+## Multi-Drone Formation
+### Formation Control
+
+1. Node Design:
+     - Create a central node to coordinate multiple drones by publishing to topics like /drone1/cmd_vel and /drone2/cmd_vel.
+
+2. Simulation:
+     - Modify the URDF files to include multiple drones.
+     - Launch individual or centralized control nodes.
+---
+## Key Files to Explore
+
+- sjtu_drone_bringup.launch.py:
+  - Launches the world and nodes. Modify this to add custom nodes or parameters.
+- plugin_drone:
+  - Handles core drone behavior. Understand its structure if you plan to modify it.
+- New Nodes:
+  - Write your own nodes to publish control commands or process sensor data.
+ 
+---
+
+
 
 
 
